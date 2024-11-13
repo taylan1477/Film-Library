@@ -1,0 +1,26 @@
+FilmKutuphaneProjesi/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── ornek/
+│       │           └── filmkutuphane/
+│       │               ├── App.java              # Ana sınıf, programın başlangıç noktası
+│       │               ├── Film.java             # Film sınıfı (film özellikleri ve işlevleri tanımlanacak)
+│       │               │          
+│       │               ├── MainController.java   # Ana ekranı kontrol eden sınıf
+│       │               ├── FilmController.java   # Film işlemlerini yöneten sınıf (ekleme, silme vb.)
+│       │               │     
+│       │               └── FileManager.java      # Dosya okuma/yazma işlemleri
+│       │                                                                                       
+│       └── resources/
+│           └── com/
+│               └── ornek/
+│                   └── filmkutuphane/
+│                       └── views/
+│                           └── MainView.fxml     # Ana görünüm dosyası (FXML)             
+│                     
+├── filmler.txt                                   # Film bilgilerini tutan ana veri dosyası
+├── README.md                                     # Proje hakkında genel bilgiler
+├── pom.xml                                       # Maven kullanılıyorsa proje yapılandırması
+└── build.gradle                                  # Gradle kullanılıyorsa proje yapılandırması

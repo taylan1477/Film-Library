@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmlibrary.FilmController">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New" />
+                        <MenuItem mnemonicParsing="false" text="Open…" />
+                        <Menu mnemonicParsing="false" text="Open Recent" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" text="Save" />
+                        <MenuItem mnemonicParsing="false" text="Save As…" />
+                        <MenuItem mnemonicParsing="false" text="Revert" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Preferences…" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Undo" />
+                        <MenuItem mnemonicParsing="false" text="Redo" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Cut" />
+                        <MenuItem mnemonicParsing="false" text="Copy" />
+                        <MenuItem mnemonicParsing="false" text="Paste" />
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Select All" />
+                        <MenuItem mnemonicParsing="false" text="Unselect All" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <items>
+                <AnchorPane>
+                    <children>
+                        <ListView fx:id="filmlist" layoutX="11.0" layoutY="42.0" prefHeight="429.0" prefWidth="200.0" />
+                        <Button layoutX="11.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#filmekle" text="Ekle" />
+                        <Button layoutX="60.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#filmsil" text="Sil" />
+                        <Button layoutX="103.0" layoutY="514.0" mnemonicParsing="false" text="Favorilere Ekle" />
+                        <TextField layoutX="11.0" layoutY="6.0" prefHeight="28.0" prefWidth="200.0" promptText="Kütüphanede arayın..." />
+                        <TextField fx:id="ifilmekle" layoutX="11.0" layoutY="477.0" prefHeight="28.0" prefWidth="200.0" promptText="Eklemek İstediğiniz Film..." />
+                    </children>
+                </AnchorPane>
+                <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                    <content>
+                        <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="664.0">
+                            <children>
+                        <Spinner fx:id="r" layoutX="580.0" layoutY="271.0" prefHeight="27.0" prefWidth="69.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Spinner>
+                        <ImageView fx:id="filmkapak" fitHeight="206.0" fitWidth="638.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="filmisim" layoutX="14.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmin İsmi" wrappingWidth="617.6719842763673">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="filmyil" layoutX="14.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yılı" wrappingWidth="49.91999847656251">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="filmtur" layoutX="302.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Türü" wrappingWidth="49.91999847656251">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="filmsure" layoutX="82.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Süre" wrappingWidth="49.91999847656251">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="filmrating" layoutX="469.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" wrappingWidth="76.03202850585939">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="filmimdb" layoutX="163.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imdb: 9.2" wrappingWidth="105.21601898437501">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yönetmen" wrappingWidth="109.05597717529298">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <ListView layoutX="14.0" layoutY="380.0" prefHeight="150.0" prefWidth="260.0" />
+                        <Text fx:id="yapimci" layoutX="161.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yapımcı" wrappingWidth="109.05597717529298">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="453.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dil" wrappingWidth="109.05597717529298">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="302.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ülke" wrappingWidth="109.05597717529298">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oyuncular:" wrappingWidth="148.9919436669922">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Label layoutX="159.0" layoutY="79.0" prefHeight="76.0" prefWidth="385.0" text="FİLM KAPAĞI BURAYA GELECEK">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+            </items>
+        </SplitPane>
+        <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+            <children>
+                <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="11.0" fx:id="x3" />
+                    </font>
+                    <textFill>
+                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+                    </textFill>
+                </Label>
+                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+            </children>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </padding>
+        </HBox>
+    </children>
+</VBox>
