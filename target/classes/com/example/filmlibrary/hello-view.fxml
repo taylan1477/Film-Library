@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.filmlibrary.HelloController">
+<VBox alignment="CENTER" prefHeight="581.0" prefWidth="914.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmlibrary.FilmController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="630.0" prefWidth="1057.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="539.0">
+               <children>
+                  <Button layoutX="43.0" layoutY="193.0" mnemonicParsing="false" text="Button" />
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="392.0" prefWidth="224.0" />
+        </items>
+      </SplitPane>
+   </children>
 </VBox>
