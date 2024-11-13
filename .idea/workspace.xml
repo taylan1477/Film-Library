@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SPEC-001_ Film Kütüphanesi Uygulaması.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/HelloApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/hello-view.fxml" afterDir="false" />
+    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="13kasim2">
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,10 +76,39 @@
       <option name="presentableId" value="Default" />
       <updated>1731418272837</updated>
     </task>
+    <task id="LOCAL-00001" summary="13kasim">
+      <created>1731512084899</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731512084899</updated>
+    </task>
+    <task id="LOCAL-00002" summary="13kasim2">
+      <created>1731512172609</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731512172609</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="13kasim" />
+    <MESSAGE value="13kasim2" />
+    <option name="LAST_COMMIT_MESSAGE" value="13kasim2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
