@@ -1,0 +1,2 @@
+Inception,Christopher Nolan,Bilim Kurgu,2010,8.8,"Rüyaların içinde rüyalar görülen bir hırsızın zihnin derinliklerine inerek bir görevi tamamlamaya çalıştığı bilim kurgu filmi.",evet,148,Leonardo DiCaprio,Joseph Gordon-Levitt,Ellen Page,İngilizce,ABD,Warner Bros.,8.8
+Matrix, Wacowski Brothers,Bilim KuRGU,1999,8.7,"Matriksi anlatsam dahi inanmazsın kendin görmen lazım.",evet,126,Keanu Reeves,Trinty Abla,İngilizce,ABD,Warner Bros.,8.8

@@ -141,5 +141,35 @@ public class Film {
         this.imdbPuani = imdbPuani;
     }
 
+    // Dosya yazma/okuma için toString ve fromString metotları
+    @Override
+    public String toString() {
+        return ad + ";" + yonetmen + ";" + tur + ";" + yil + ";" + derecelendirme + ";" +
+                ozet + ";" + favori + ";" + sure + ";" + String.join(",", oyuncular) + ";" +
+                dil + ";" + ulke + ";" + yapimci + ";" + imdbPuani;
+    }
+
+    public static Film fromString(String line) {
+        String[] parts = line.split(";");
+        if (parts.length != 12) { // Beklenen alan sayısı
+            throw new IllegalArgumentException("Veri formatı hatalı: " + line);
+        }
+        // Veriyi parçalayıp Film nesnesine dönüştürme işlemi
+        String ad = parts[0];
+        String yonetmen = parts[1];
+        String tur = parts[2];
+        int yil = Integer.parseInt(parts[3]);
+        double derecelendirme = Double.parseDouble(parts[4]);
+        String ozet = parts[5];
+        boolean favori = Boolean.parseBoolean(parts[6]);
+        int sure = Integer.parseInt(parts[7]);
+        List<String> oyuncular = List.of(parts[8].split(","));
+        String dil = parts[9];
+        String ulke = parts[10];
+        String yapimci = parts[11];
+        double imdbPuani = Double.parseDouble(parts[12]);
+
+        return new Film(ad, yonetmen, tur, yil, derecelendirme, ozet, favori, sure, oyuncular, dil, ulke, yapimci, imdbPuani);
+    }
 
 }

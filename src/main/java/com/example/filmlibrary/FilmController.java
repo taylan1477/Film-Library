@@ -6,11 +6,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FilmController {
 
@@ -27,7 +30,7 @@ public class FilmController {
     private ImageView filmkapak;
 
     @FXML
-    private ListView<String> filmlist;
+    private ListView<Film> filmlist;
 
     @FXML
     private ListView<String> filmoyuncular;
@@ -60,34 +63,107 @@ public class FilmController {
     private TextField ifilmekle;
 
     @FXML
-    private Font x3;
-
-    @FXML
-    private Color x4;
-
-    @FXML
     private Text yapimci;
+
+    private ObservableList<Film> filmList = FXCollections.observableArrayList();
+    private final String FILE_PATH = "filmler.txt";
 
     @FXML
     void filmekle(MouseEvent event) {
-        filmlist.getItems().add(ifilmekle.getText());
+        String filmAdi = ifilmekle.getText();
+        if (!filmAdi.isEmpty()) {
+            Film yeniFilm = new Film(filmAdi, "Yönetmen", "Tür", 2024, 8.5,
+                    "Bu bir özet", false, 120, List.of("Oyuncu1", "Oyuncu2"),
+                    "Dil", "Ülke", "Yapımcı", 8.2);
+            filmList.add(yeniFilm);
+            filmlist.setItems(filmList);
+            ifilmekle.clear();
+            saveFilmsToFile();
+        }
     }
 
     @FXML
     void filmsil(MouseEvent event) {
-        int selectedID = filmlist.getSelectionModel().getSelectedIndex();
-        filmlist.getItems().remove(selectedID);
+        Film selectedFilm = filmlist.getSelectionModel().getSelectedItem();
+        if (selectedFilm != null) {
+            filmList.remove(selectedFilm);
+            filmlist.setItems(filmList);
+            saveFilmsToFile();
+        }
     }
-    public void initialize() {
-//        // ListView'i ekleme için hazırlıyoruz
-//        listoffilms.setItems(filmList);
 
-        // ListView'den bir öğe seçildiğinde filmismi text'ini güncelle
+    @FXML
+    void filmara(MouseEvent event) {
+        String searchTerm = filmsearch.getText().toLowerCase();
+        ObservableList<Film> filteredList = FXCollections.observableArrayList();
+
+        for (Film film : filmList) {
+            if (film.getAd().toLowerCase().contains(searchTerm)) {
+                filteredList.add(film);
+            }
+        }
+
+        filmlist.setItems(filteredList);
+    }
+
+    public void initialize() {
+        loadFilmsFromFile();
+        filmlist.setItems(filmList);
+
         filmlist.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                filmisim.setText(newValue);
-
+                updateFilmDetails(newValue);
             }
         });
     }
+
+    private void updateFilmDetails(Film film) {
+        filmisim.setText(film.getAd());
+        filmyil.setText(String.valueOf(film.getYil()));
+        filmtur.setText(film.getTur());
+        filmsure.setText(film.getSure() + " dk");
+        filmdil.setText(film.getDil());
+        filmulke.setText(film.getUlke());
+        filmrating.setText(String.valueOf(film.getDerecelendirme()));
+        filmkapak.setImage(new Image("file:default_poster.png"));
+        filmyonetmen.setText(film.getYonetmen());
+        yapimci.setText(film.getYapimci());
+        filmimdb.setText(String.valueOf(film.getImdbPuani()));
+
+        filmoyuncular.getItems().clear();
+        filmoyuncular.getItems().addAll(film.getOyuncular());
+    }
+
+    private void saveFilmsToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            for (Film film : filmList) {
+                writer.write(film.toString());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadFilmsFromFile() {
+        File file = new File(FILE_PATH);
+        if (!file.exists() || file.length() == 0) {
+            System.out.println("Film dosyası bulunamadı veya boş.");
+            return;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                try {
+                    Film film = Film.fromString(line);
+                    filmList.add(film);
+                } catch (Exception e) {
+                    System.err.println("Hatalı veri satırı atlandı: " + line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
