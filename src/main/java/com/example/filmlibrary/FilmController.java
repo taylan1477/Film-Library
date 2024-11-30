@@ -35,9 +35,6 @@ public class FilmController {
     private ListView<String> filmoyuncular;
 
     @FXML
-    private Spinner<Integer> filmrate;
-
-    @FXML
     private Text filmrating;
 
     @FXML
