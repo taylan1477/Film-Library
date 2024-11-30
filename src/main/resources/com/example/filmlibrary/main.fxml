@@ -109,54 +109,54 @@
                     <content>
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="664.0">
                             <children>
-                        <ImageView fx:id="filmkapak" fitHeight="206.0" fitWidth="638.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <Text fx:id="filmisim" layoutX="14.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmin İsmi" wrappingWidth="617.6719842763673">
+                        <ImageView fx:id="filmkapak" fitHeight="206.0" fitWidth="638.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="filmisim" layoutX="13.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmin İsmi" wrappingWidth="617.6719842763673">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="40.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmyil" layoutX="14.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yılı" wrappingWidth="57.59999824218767">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="filmtur" layoutX="249.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Türü" wrappingWidth="167.424026796875">
+                        <Text fx:id="filmyil" layoutX="15.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yılı" wrappingWidth="57.59999824218767">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmsure" layoutX="72.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Süre" wrappingWidth="66.04805023437501">
+                        <Text fx:id="filmtur" layoutX="251.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Türü" wrappingWidth="167.424026796875">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmrating" layoutX="617.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9.2" wrappingWidth="29.95199908593753">
+                        <Text fx:id="filmsure" layoutX="74.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Süre" wrappingWidth="66.04805023437501">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmimdb" layoutX="194.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9.2" wrappingWidth="39.1679988046875">
+                        <Text fx:id="filmrating" layoutX="619.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9.2" wrappingWidth="29.95199908593753">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmyonetmen" layoutX="14.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yönetmen" wrappingWidth="200.44799388281268">
+                        <Text fx:id="filmimdb" layoutX="199.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9.2" wrappingWidth="29.95199908593753">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="filmyonetmen" layoutX="14.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yönetmen" wrappingWidth="200.44799388281268">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
                         <ListView fx:id="filmoyuncular" layoutX="14.0" layoutY="380.0" prefHeight="150.0" prefWidth="260.0" />
-                        <Text fx:id="yapimci" layoutX="224.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yapımcı" wrappingWidth="255.7439959741211">
+                        <Text fx:id="yapimci" layoutX="224.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yapımcı" wrappingWidth="255.7439959741211">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmdil" layoutX="429.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dil" wrappingWidth="115.9681170678711">
+                        <Text fx:id="filmdil" layoutX="431.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dil" wrappingWidth="115.9681170678711">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmulke" layoutX="494.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ülke" wrappingWidth="155.90399963623048">
+                        <Text fx:id="filmulke" layoutX="494.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ülke" wrappingWidth="155.90399963623048">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -166,17 +166,17 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Label layoutX="159.0" layoutY="79.0" prefHeight="76.0" prefWidth="385.0" text="FİLM KAPAĞI BURAYA GELECEK">
+                        <Label layoutX="159.0" layoutY="65.0" prefHeight="76.0" prefWidth="385.0" text="FİLM KAPAĞI BURAYA GELECEK">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Text layoutX="144.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imdb:" wrappingWidth="57.59999824218767">
+                        <Text layoutX="144.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imdb:" wrappingWidth="57.59999824218767">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="552.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" wrappingWidth="64.51198554687517">
+                        <Text layoutX="554.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" wrappingWidth="64.51198554687517">
                            <font>
                               <Font size="20.0" />
                            </font>

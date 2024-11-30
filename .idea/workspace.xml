@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="5 film eklendi">
+    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="Temiz Çalışıyor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filmler.txt" beforeDir="false" afterPath="$PROJECT_DIR$/filmler.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1732963642301</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Temiz Çalışıyor.">
+      <created>1732964733978</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732964733978</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,7 +144,8 @@
     <MESSAGE value="13kasim3" />
     <MESSAGE value="film controller inşa ediliyor" />
     <MESSAGE value="5 film eklendi" />
-    <option name="LAST_COMMIT_MESSAGE" value="5 film eklendi" />
+    <MESSAGE value="Temiz Çalışıyor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Temiz Çalışıyor." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

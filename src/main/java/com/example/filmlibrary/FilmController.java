@@ -29,9 +29,6 @@ public class FilmController {
     private ImageView filmkapak;
 
     @FXML
-    private ListView<Film> filmlist;
-
-    @FXML
     private ListView<String> filmoyuncular;
 
     @FXML
@@ -60,6 +57,9 @@ public class FilmController {
 
     @FXML
     private Text yapimci;
+
+    @FXML
+    private ListView<Film> filmlist;
 
     private ObservableList<Film> filmList = FXCollections.observableArrayList();
     private final String FILE_PATH = "filmler.txt";
@@ -170,6 +170,4 @@ public class FilmController {
             e.printStackTrace();
         }
     }
-
-
 }
