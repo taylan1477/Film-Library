@@ -32,14 +32,28 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmlibrary.FilmController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmlibrary.FilmController">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -88,7 +102,7 @@
                         <Button layoutX="11.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#filmekle" text="Ekle" />
                         <Button layoutX="60.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#filmsil" text="Sil" />
                         <Button layoutX="103.0" layoutY="514.0" mnemonicParsing="false" text="Favorilere Ekle" />
-                        <TextField layoutX="11.0" layoutY="6.0" prefHeight="28.0" prefWidth="200.0" promptText="Kütüphanede arayın..." />
+                        <TextField fx:id="filmsearch" layoutX="11.0" layoutY="6.0" prefHeight="28.0" prefWidth="200.0" promptText="Kütüphanede arayın..." />
                         <TextField fx:id="ifilmekle" layoutX="11.0" layoutY="477.0" prefHeight="28.0" prefWidth="200.0" promptText="Eklemek İstediğiniz Film..." />
                     </children>
                 </AnchorPane>
@@ -96,7 +110,7 @@
                     <content>
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="664.0">
                             <children>
-                        <Spinner fx:id="r" layoutX="580.0" layoutY="271.0" prefHeight="27.0" prefWidth="69.0">
+                        <Spinner fx:id="filmrate" layoutX="580.0" layoutY="271.0" max="10" min="0" prefHeight="27.0" prefWidth="69.0">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -107,53 +121,53 @@
                               <Font size="36.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmyil" layoutX="14.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yılı" wrappingWidth="49.91999847656251">
+                        <Text fx:id="filmyil" layoutX="14.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yılı" wrappingWidth="66.04798919921876">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmtur" layoutX="302.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Türü" wrappingWidth="49.91999847656251">
+                        <Text fx:id="filmtur" layoutX="301.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Türü" wrappingWidth="154.3679965234375">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmsure" layoutX="82.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Süre" wrappingWidth="49.91999847656251">
+                        <Text fx:id="filmsure" layoutX="80.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Süre" wrappingWidth="73.72804291015626">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
                         <Text fx:id="filmrating" layoutX="469.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" wrappingWidth="76.03202850585939">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmimdb" layoutX="163.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imdb: 9.2" wrappingWidth="105.21601898437501">
+                        <Text fx:id="filmimdb" layoutX="159.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imdb: 9.2" wrappingWidth="123.64799530273439">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="14.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yönetmen" wrappingWidth="109.05597717529298">
+                        <Text fx:id="filmyonetmen" layoutX="14.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yönetmen" wrappingWidth="109.05597717529298">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
                         <ListView layoutX="14.0" layoutY="380.0" prefHeight="150.0" prefWidth="260.0" />
-                        <Text fx:id="yapimci" layoutX="161.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yapımcı" wrappingWidth="109.05597717529298">
+                        <Text fx:id="yapimci" layoutX="159.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yapımcı" wrappingWidth="134.39994079833986">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="453.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dil" wrappingWidth="109.05597717529298">
+                        <Text fx:id="filmdil" layoutX="469.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dil" wrappingWidth="175.87201721435548">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="302.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ülke" wrappingWidth="109.05597717529298">
+                        <Text fx:id="filmulke" layoutX="302.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ülke" wrappingWidth="152.06397278076173">
                            <font>
-                              <Font size="24.0" />
+                              <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="14.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oyuncular:" wrappingWidth="148.9919436669922">
+                        <Text fx:id="filmoyuncular" layoutX="14.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oyuncular:" wrappingWidth="148.9919436669922">
                            <font>
                               <Font size="18.0" />
                            </font>

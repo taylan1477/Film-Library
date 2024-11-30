@@ -1,5 +1,6 @@
 package com.example.filmlibrary;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Film {
@@ -151,9 +152,12 @@ public class Film {
 
     public static Film fromString(String line) {
         String[] parts = line.split(";");
-        if (parts.length != 12) { // Beklenen alan sayısı
+
+        // Hatalı veri satırı kontrolü
+        if (parts.length != 13) { // Beklenen 13 alan (12 film bilgisi ve 1 imdb puanı)
             throw new IllegalArgumentException("Veri formatı hatalı: " + line);
         }
+
         // Veriyi parçalayıp Film nesnesine dönüştürme işlemi
         String ad = parts[0];
         String yonetmen = parts[1];
@@ -163,7 +167,10 @@ public class Film {
         String ozet = parts[5];
         boolean favori = Boolean.parseBoolean(parts[6]);
         int sure = Integer.parseInt(parts[7]);
-        List<String> oyuncular = List.of(parts[8].split(","));
+        List<String> oyuncular = new ArrayList<>();  // Hatalı kısmı burada düzelttik
+        for (String oyuncu : parts[8].split(",")) {
+            oyuncular.add(oyuncu);
+        }
         String dil = parts[9];
         String ulke = parts[10];
         String yapimci = parts[11];
@@ -171,5 +178,4 @@ public class Film {
 
         return new Film(ad, yonetmen, tur, yil, derecelendirme, ozet, favori, sure, oyuncular, dil, ulke, yapimci, imdbPuani);
     }
-
 }

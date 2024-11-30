@@ -12,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FilmController {
@@ -107,9 +106,18 @@ public class FilmController {
     }
 
     public void initialize() {
+        // Dosyadan filmleri yükle
         loadFilmsFromFile();
+
+        // Filmleri ListView ile bağla
         filmlist.setItems(filmList);
 
+        // Liste boşsa mesaj veya başka bir eylem eklenebilir
+        if (filmList.isEmpty()) {
+            System.out.println("Kütüphane şu anda boş. Yeni filmler ekleyin.");
+        }
+
+        // Seçilen filmi detaylarla bağla
         filmlist.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 updateFilmDetails(newValue);
@@ -155,7 +163,7 @@ public class FilmController {
             String line;
             while ((line = reader.readLine()) != null) {
                 try {
-                    Film film = Film.fromString(line);
+                    Film film = Film.fromString(line);  // Bu metodun doğru çalışıp çalışmadığını kontrol edin
                     filmList.add(film);
                 } catch (Exception e) {
                     System.err.println("Hatalı veri satırı atlandı: " + line);
@@ -165,5 +173,6 @@ public class FilmController {
             e.printStackTrace();
         }
     }
+
 
 }
