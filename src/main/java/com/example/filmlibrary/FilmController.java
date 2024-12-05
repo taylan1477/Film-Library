@@ -67,7 +67,8 @@ public class FilmController {
     private ListView<Film> filmlist;
 
     private ObservableList<Film> filmList = FXCollections.observableArrayList();
-    private final String FILE_PATH = "filmler.txt";
+
+    public static final String FILE_PATH = "filmler.txt";
 
     @FXML
     void filmekle(MouseEvent event) {
@@ -155,7 +156,8 @@ public class FilmController {
         }
     }
 
-    private void loadFilmsFromFile() {
+    public void loadFilmsFromFile() {
+        filmList.clear();
         File file = new File(FILE_PATH);
         if (!file.exists() || file.length() == 0) {
             System.out.println("Film dosyası bulunamadı veya boş.");
@@ -165,7 +167,7 @@ public class FilmController {
             String line;
             while ((line = reader.readLine()) != null) {
                 try {
-                    Film film = Film.fromString(line);  // Bu metodun doğru çalışıp çalışmadığını kontrol edin
+                    Film film = Film.fromString(line);
                     filmList.add(film);
                 } catch (Exception e) {
                     System.err.println("Hatalı veri satırı atlandı: " + line);
@@ -180,6 +182,9 @@ public class FilmController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FilmEkle.fxml"));
             Parent root = loader.load();
+            // FilmEkleController referansını al
+            FilmEkleController filmEkleController = loader.getController();
+            filmEkleController.setFilmController(this);
             Stage stage = new Stage();
             stage.setTitle("Film Ekle");
             stage.setScene(new Scene(root));
@@ -187,6 +192,6 @@ public class FilmController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
 
+    }
 }

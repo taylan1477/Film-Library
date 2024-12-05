@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="Film Ekleme menu eklendi">
+    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="Film Ekleme menusu 2/4 tamamlandı">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filmler.txt" beforeDir="false" afterPath="$PROJECT_DIR$/filmler.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmEkleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmEkleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/FilmEkle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/FilmEkle.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/Film.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/Film.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1733409238434</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Film Ekleme menusu 2/4 tamamlandı">
+      <created>1733413180882</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733413180882</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,7 +181,8 @@
     <MESSAGE value="Temiz Çalışıyor." />
     <MESSAGE value="Eksikler: Güncelleme, Ekleme, Makyaj" />
     <MESSAGE value="Film Ekleme menu eklendi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Film Ekleme menu eklendi" />
+    <MESSAGE value="Film Ekleme menusu 2/4 tamamlandı" />
+    <option name="LAST_COMMIT_MESSAGE" value="Film Ekleme menusu 2/4 tamamlandı" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
