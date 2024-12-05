@@ -72,15 +72,18 @@ public class FilmController {
 
     @FXML
     void filmekle(MouseEvent event) {
-        String filmAdi = ifilmekle.getText();
-        if (!filmAdi.isEmpty()) {
-            Film yeniFilm = new Film(filmAdi, "Yönetmen", "Tür", 2024, 8.5,
-                    "Bu bir özet", false, 120, List.of("Oyuncu1", "Oyuncu2"),
-                    "Dil", "Ülke", "Yapımcı", 8.2);
-            filmList.add(yeniFilm);
-            filmlist.setItems(filmList);
-            ifilmekle.clear();
-            saveFilmsToFile();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FilmEkle.fxml"));
+            Parent root = loader.load();
+            // FilmEkleController referansını al
+            FilmEkleController filmEkleController = loader.getController();
+            filmEkleController.setFilmController(this);
+            Stage stage = new Stage();
+            stage.setTitle("Film Ekle");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -192,6 +195,5 @@ public class FilmController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
