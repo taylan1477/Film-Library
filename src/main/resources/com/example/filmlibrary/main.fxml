@@ -56,6 +56,7 @@
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
+
                 <Menu mnemonicParsing="false" text="File">
                     <items>
                         <MenuItem mnemonicParsing="false" text="New" />
@@ -74,6 +75,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
+                        <MenuItem mnemonicParsing="false" text="Film Ekle" onAction="#showFilmEkleWindow" />
                         <MenuItem mnemonicParsing="false" text="Undo" />
                         <MenuItem mnemonicParsing="false" text="Redo" />
                         <SeparatorMenuItem mnemonicParsing="false" />

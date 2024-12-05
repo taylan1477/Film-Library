@@ -5,11 +5,11 @@ FilmKutuphaneProjesi/
 │       │   └── com/
 │       │       └── ornek/
 │       │           └── filmkutuphane/
-│       │               ├── App.java              # Ana sınıf, programın başlangıç noktası
+│       │               ├── FilmMain.java              # Ana sınıf, programın başlangıç noktası
 │       │               ├── Film.java             # Film sınıfı (film özellikleri ve işlevleri tanımlanacak)
 │       │               │          
 │       │               ├── MainController.java   # Ana ekranı kontrol eden sınıf
-│       │               ├── FilmController.java   # Film işlemlerini yöneten sınıf (ekleme, silme vb.)
+│       │               ├── FilmController.java   # Film işlemlerini yöneten sınıf (CRUD)
 │       │               │     
 │       │               └── FileManager.java      # Dosya okuma/yazma işlemleri
 │       │                                                                                       

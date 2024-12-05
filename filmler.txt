@@ -1,5 +1,4 @@
 The Shawshank Redemption;Frank Darabont;Drama;1994;9.3;Andy ve Red isimli iki mahkumun dostluk hikayesi.;true;142;Tim Robbins,Morgan Freeman;English;USA;Castle Rock Entertainment;9.3
 Inception;Christopher Nolan;Science Fiction;2010;8.8;Rüya içinde rüya konsepti üzerine bir bilim kurgu.;false;148;Leonardo DiCaprio,Ellen Page,Tom Hardy;English;USA;Legendary Pictures;8.8
 Parasite;Bong Joon-ho;Thriller;2019;8.6;Zengin ve fakir ailelerin hayatlarının kesişmesi.;true;132;Kang-ho Song,Sun-kyun Lee,Yeo-jeong Jo;Korean;South Korea;Barunson E&A;8.6
-The Dark Knight;Christopher Nolan;Action;2008;9.0;Batman, Joker'in Gotham'ı tehdit etmesiyle yüzleşir.;false;152;Christian Bale,Heath Ledger,Aaron Eckhart;English;USA;Legendary Pictures;9.0
 Interstellar;Christopher Nolan;Science Fiction;2014;8.6;İnsanlığın hayatta kalması için bir astronot ekibi yeni bir gezegen arar.;false;169;Matthew McConaughey,Anne Hathaway,Jessica Chastain;English;USA;Syncopy;8.6
