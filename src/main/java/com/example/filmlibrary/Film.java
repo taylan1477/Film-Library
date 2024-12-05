@@ -8,15 +8,15 @@ public class Film {
     private String yonetmen;          // Yönetmen
     private String tur;               // Tür
     private int yil;                  // Yayın yılı
-    private double derecelendirme;    // Derecelendirme
-    private String ozet;              // Özet
-    private boolean favori;           // Favori durumu
+    private double imdbPuani;         // IMDB puanı
     private int sure;                 // Film süresi
-    private List<String> oyuncular;   // Oyuncular
+    private String yapimci;           // Yapımcı
     private String dil;               // Dil
     private String ulke;              // Ülke
-    private String yapimci;           // Yapımcı
-    private double imdbPuani;         // IMDB puanı
+    private String ozet;              // Özet
+    private boolean favori;           // Favori durumu
+    private List<String> oyuncular;   // Oyuncular
+    private double derecelendirme;    // Derecelendirme
 
     // Yapıcı metod
     public Film(String ad, String yonetmen, String tur, int yil, double derecelendirme,

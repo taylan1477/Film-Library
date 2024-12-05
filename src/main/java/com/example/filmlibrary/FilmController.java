@@ -175,6 +175,7 @@ public class FilmController {
             e.printStackTrace();
         }
     }
+
     public void showFilmEkleWindow(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FilmEkle.fxml"));
