@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="Eksikler: Update ve Makyaj">
-      <change afterPath="$PROJECT_DIR$/kapaklar/Inception.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kapaklar/Interstellar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kapaklar/Parasite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kapaklar/The Shawshank Redemption.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kapaklar/default_poster.png" afterDir="false" />
+    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="Film Kapakları eklendi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/filmler.txt" beforeDir="false" afterPath="$PROJECT_DIR$/filmler.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kapaklar/The Shawshank Redemption.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/FilmEkle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/FilmEkle.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmEkle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmEkle.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1733425801858</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Film Kapakları eklendi">
+      <created>1733578671820</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733578671820</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,7 +217,8 @@
     <MESSAGE value="Film Ekleme menusu 3/4 tamamlandı" />
     <MESSAGE value="Film Ekleme menusu 4/4 tamamlandı" />
     <MESSAGE value="Eksikler: Update ve Makyaj" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eksikler: Update ve Makyaj" />
+    <MESSAGE value="Film Kapakları eklendi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Film Kapakları eklendi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
