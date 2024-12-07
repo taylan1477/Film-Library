@@ -149,15 +149,25 @@ public class FilmController {
                 destinationDir.mkdirs(); // Eğer klasör yoksa oluştur
             }
 
-            // Hedef dosyanın adını belirle (orijinal adıyla taşınır)
-            File destinationFile = new File(destinationDir, selectedFile.getName());
+            // Seçilen film bilgisine eriş (örneğin bir ListView'dan)
+            Film selectedFilm = filmlist.getSelectionModel().getSelectedItem();
 
-            try {
-                // Dosyayı "kapaklar" klasörüne kopyala
-                Files.copy(selectedFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Kapak resmi başarıyla taşındı: " + destinationFile.getAbsolutePath());
-            } catch (IOException e) {
-                System.err.println("Kapak resmi taşınırken bir hata oluştu: " + e.getMessage());
+            if (selectedFilm != null) {
+                // Hedef dosyanın adını belirle (film adı ile taşınır)
+                File destinationFile = new File(destinationDir, selectedFilm.getAd() + ".png");
+
+                try {
+                    // Dosyayı "kapaklar" klasörüne kopyala
+                    Files.copy(selectedFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    System.out.println("Kapak resmi başarıyla taşındı: " + destinationFile.getAbsolutePath());
+
+                    // Yeni kapak resmini göster
+                    filmkapak.setImage(new Image("file:" + destinationFile.getAbsolutePath()));
+                } catch (IOException e) {
+                    System.err.println("Kapak resmi taşınırken bir hata oluştu: " + e.getMessage());
+                }
+            } else {
+                System.err.println("Film seçilmedi. Kapak atanamadı.");
             }
         } else {
             System.out.println("Hiçbir dosya seçilmedi.");
