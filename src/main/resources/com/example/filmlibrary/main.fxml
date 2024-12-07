@@ -75,7 +75,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Film Ekle" onAction="#showFilmEkleWindow" />
+                        <MenuItem mnemonicParsing="false" onAction="#showFilmEkleWindow" text="Film Ekle" />
                         <MenuItem mnemonicParsing="false" text="Undo" />
                         <MenuItem mnemonicParsing="false" text="Redo" />
                         <SeparatorMenuItem mnemonicParsing="false" />
@@ -111,8 +111,8 @@
                     <content>
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="664.0">
                             <children>
-                        <ImageView fx:id="filmkapak" fitHeight="206.0" fitWidth="638.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true" />
-                        <Text fx:id="filmisim" layoutX="13.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmin İsmi" wrappingWidth="617.6719842763673">
+                        <ImageView fx:id="filmkapak" fitHeight="215.0" fitWidth="650.0" layoutX="7.0" onMouseClicked="#kapakekle" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="filmisim" layoutX="14.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmin İsmi" wrappingWidth="617.6719842763673">
                            <font>
                               <Font size="40.0" />
                            </font>
@@ -168,11 +168,6 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Label layoutX="159.0" layoutY="65.0" prefHeight="76.0" prefWidth="385.0" text="FİLM KAPAĞI BURAYA GELECEK">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
                         <Text layoutX="144.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imdb:" wrappingWidth="57.59999824218767">
                            <font>
                               <Font size="20.0" />

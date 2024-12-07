@@ -14,10 +14,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.*;
-import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 public class FilmController {
 
@@ -111,6 +112,41 @@ public class FilmController {
         filmlist.setItems(filteredList);
     }
 
+    @FXML
+    void kapakekle(MouseEvent event) {
+        // Kullanıcıdan bir resim seçmesini iste
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Kapak Resmi Seç");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
+
+        // FileChooser penceresini aç
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            // "kapaklar" klasörüne taşınacak yolu belirle
+            File destinationDir = new File("kapaklar");
+            if (!destinationDir.exists()) {
+                destinationDir.mkdirs(); // Eğer klasör yoksa oluştur
+            }
+
+            // Hedef dosyanın adını belirle (orijinal adıyla taşınır)
+            File destinationFile = new File(destinationDir, selectedFile.getName());
+
+            try {
+                // Dosyayı "kapaklar" klasörüne kopyala
+                Files.copy(selectedFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Kapak resmi başarıyla taşındı: " + destinationFile.getAbsolutePath());
+            } catch (IOException e) {
+                System.err.println("Kapak resmi taşınırken bir hata oluştu: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Hiçbir dosya seçilmedi.");
+        }
+    }
+
     public void initialize() {
         // Dosyadan filmleri yükle
         loadFilmsFromFile();
@@ -139,10 +175,33 @@ public class FilmController {
         filmdil.setText(film.getDil());
         filmulke.setText(film.getUlke());
         filmrating.setText(String.valueOf(film.getDerecelendirme()));
-        filmkapak.setImage(new Image("file:default_poster.png"));
         filmyonetmen.setText(film.getYonetmen());
         yapimci.setText(film.getYapimci());
         filmimdb.setText(String.valueOf(film.getImdbPuani()));
+
+        // Kapak resmi için dosya kontrolü
+        String kapakDosyasi = "kapaklar/" + film.getAd() + ".png";
+        File kapakFile = new File(kapakDosyasi);
+
+        // Varsayılan görüntü yolu
+        String varsayilanKapak = "file:kapaklar/default_poster.png";
+        File varsayilanKapakFile = new File("kapaklar/default_poster.png");
+
+        // Varsayılan görüntünün varlığını kontrol edin
+        if (!varsayilanKapakFile.exists()) {
+            System.err.println("Varsayılan görüntü dosyası bulunamadı: default_poster.png");
+            return; // Varsayılan dosya olmadan devam edemeyiz.
+        }
+
+        if (kapakFile.exists()) {
+            // Kapak dosyası mevcutsa görüntüyü ayarla
+            filmkapak.setImage(new Image("file:" + kapakDosyasi));
+            filmkapak.setDisable(true); // Tıklanabilirliği kapat
+        } else {
+            // Kapak dosyası yoksa varsayılanı göster
+            filmkapak.setImage(new Image(varsayilanKapak));
+            filmkapak.setDisable(false); // Tıklanabilirliği açık bırak
+        }
 
         filmoyuncular.getItems().clear();
         filmoyuncular.getItems().addAll(film.getOyuncular());

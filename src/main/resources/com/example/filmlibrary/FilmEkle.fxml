@@ -12,11 +12,6 @@
          <font>
             <Font name="Kristen ITC" size="24.0" />
          </font></Label>
-      <Label maxHeight="-Infinity" maxWidth="-Infinity" text=" ">
-         <font>
-            <Font size="4.0" />
-         </font>
-      </Label>
         <TextField fx:id="filmNameField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="28.0" prefWidth="400.0" promptText="Film Adı" />
         <TextField fx:id="filmDirectorField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="400.0" promptText="Yönetmen" />
         <TextField fx:id="filmGenreField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="400.0" promptText="Filmin Türü" />
