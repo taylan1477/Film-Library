@@ -17,10 +17,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FilmController {
 
@@ -366,4 +369,84 @@ public class FilmController {
             e.printStackTrace();
         }
     }
+    @FXML
+    void filmBilgileriniGuncelle() {
+        // Seçili filmi al
+        Film selectedFilm = filmlist.getSelectionModel().getSelectedItem();
+        if (selectedFilm == null) {
+            System.out.println("Film seçilmedi!");
+            return;
+        }
+
+        try {
+            // Yeni pencere oluştur
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FilmEdit.fxml"));
+            Parent root = loader.load();
+
+            // Controller'ı al ve bilgileri gönder
+            FilmEditController controller = loader.getController();
+            Stage stage = new Stage();
+            controller.setFilm(selectedFilm, stage);
+
+            // Yeni pencereyi ayarla
+            stage.setScene(new Scene(root));
+            stage.setTitle("Film Bilgilerini Güncelle");
+            stage.initModality(Modality.APPLICATION_MODAL); // Ana pencereyle etkileşim engellenir
+            stage.showAndWait();
+
+            // Değişiklik kaydedildiyse ListView'i yenile ve dosyaya yaz
+            if (controller.isSaved()) {
+                guncelleVeDosyayaKaydet(selectedFilm);
+                filmlist.refresh(); // ListView güncellenir
+                System.out.println("Film bilgileri güncellendi ve dosyaya kaydedildi!");
+            }
+        } catch (IOException e) {
+            System.err.println("Yeni pencere açılamadı: " + e.getMessage());
+        }
+    }
+
+    private void guncelleVeDosyayaKaydet(Film updatedFilm) {
+        File dosya = new File("filmler.txt");
+        List<String> satirlar = new ArrayList<>();
+
+        // Dosyayı satır satır oku
+        try (BufferedReader reader = new BufferedReader(new FileReader(dosya))) {
+            String satir;
+            while ((satir = reader.readLine()) != null) {
+                // Film ismine göre karşılaştırma yaparak güncelle
+                String[] bilgiler = satir.split(";"); // Veriler noktalı virgülle ayrılmış
+                if (bilgiler[0].equals(updatedFilm.getAd())) { // Film ismi kontrolü
+                    // Güncellenmiş film bilgilerini oluştur
+                    satir = updatedFilm.getAd() + ";" +
+                            updatedFilm.getYonetmen() + ";" +
+                            updatedFilm.getTur() + ";" +
+                            updatedFilm.getYil() + ";" +
+                            updatedFilm.getDerecelendirme() + ";" +
+                            updatedFilm.getOzet() + ";" +
+                            updatedFilm.isFavori() + ";" +
+                            updatedFilm.getSure() + ";" +
+                            updatedFilm.getOyuncular() + ";" +
+                            updatedFilm.getDil() + ";" +
+                            updatedFilm.getUlke() + ";" +
+                            updatedFilm.getYapimci() + ";" +
+                            updatedFilm.getImdbPuani();
+                }
+                satirlar.add(satir); // Güncellenmiş veya orijinal satırı ekle
+            }
+        } catch (IOException e) {
+            System.err.println("Dosya okunurken bir hata oluştu: " + e.getMessage());
+            return;
+        }
+
+        // Güncellenmiş verileri dosyaya yaz
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(dosya))) {
+            for (String satir : satirlar) {
+                writer.write(satir);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.err.println("Dosya yazılırken bir hata oluştu: " + e.getMessage());
+        }
+    }
+
 }

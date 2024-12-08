@@ -100,10 +100,24 @@
                 <AnchorPane fx:id="biganchorpane">
                     <children>
                         <ListView fx:id="filmlist" fixedCellSize="30.0" layoutX="4.0" layoutY="42.0" prefHeight="458.0" prefWidth="211.0" />
-                        <Button layoutX="11.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#filmekle" text="Ekle" />
-                        <Button layoutX="60.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#filmsil" text="Sil" />
-                        <Button layoutX="103.0" layoutY="514.0" mnemonicParsing="false" text="Favorilere Ekle" />
+                        <Button layoutX="4.0" layoutY="512.0" mnemonicParsing="false" onMouseClicked="#filmekle" text="Ekle">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                        <Button layoutX="54.0" layoutY="512.0" mnemonicParsing="false" onMouseClicked="#filmsil" text="Sil">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                        <Button layoutX="94.0" layoutY="512.0" mnemonicParsing="false" onAction="#filmBilgileriniGuncelle" text="Güncelle">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
                         <TextField fx:id="filmsearch" layoutX="11.0" layoutY="6.0" onKeyPressed="#filmara" prefHeight="28.0" prefWidth="200.0" promptText="Kütüphanede arayın..." />
+                  <Button layoutX="178.0" layoutY="512.0" mnemonicParsing="false" text="♥">
+                     <font>
+                        <Font name="Bell MT Italic" size="15.0" />
+                     </font>
+                  </Button>
                     </children>
                 </AnchorPane>
                 <ScrollPane fx:id="bigscrollpane" prefHeight="-1.0" prefWidth="-1.0">
@@ -121,7 +135,7 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmtur" layoutX="251.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Türü" wrappingWidth="167.424026796875">
+                        <Text fx:id="filmtur" layoutX="274.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Türü" wrappingWidth="167.424026796875">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -131,7 +145,7 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmrating" layoutX="619.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9.2" wrappingWidth="29.95199908593753">
+                        <Text fx:id="filmrating" layoutX="632.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9.2" wrappingWidth="29.95199908593753">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -141,23 +155,23 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmyonetmen" layoutX="14.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yönetmen" wrappingWidth="200.44799388281268">
+                        <Text fx:id="filmyonetmen" layoutX="14.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yönetmen" wrappingWidth="232.70403636328143">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
                         <ListView fx:id="filmoyuncular" fixedCellSize="20.0" layoutX="8.0" layoutY="388.0" prefHeight="151.0" prefWidth="266.0" />
-                        <Text fx:id="yapimci" layoutX="224.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yapımcı" wrappingWidth="255.7439959741211">
+                        <Text fx:id="yapimci" layoutX="274.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yapımcı" wrappingWidth="200.44799388281268">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmdil" layoutX="431.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dil" wrappingWidth="115.9681170678711">
+                        <Text fx:id="filmdil" layoutX="451.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dil" wrappingWidth="115.9681170678711">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fx:id="filmulke" layoutX="494.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ülke" wrappingWidth="155.90399963623048">
+                        <Text fx:id="filmulke" layoutX="488.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ülke" wrappingWidth="168.19196350341798">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -172,7 +186,7 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text layoutX="554.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" wrappingWidth="64.51198554687517">
+                        <Text layoutX="567.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" wrappingWidth="64.51198554687517">
                            <font>
                               <Font size="20.0" />
                            </font>
