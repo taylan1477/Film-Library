@@ -119,6 +119,11 @@ public class FilmController {
     }
 
     @FXML
+    void filmfavekle(ActionEvent event) {
+
+    }
+
+    @FXML
     void filmara(MouseEvent event) {
         String searchTerm = filmsearch.getText().toLowerCase();
         ObservableList<Film> filteredList = FXCollections.observableArrayList();
@@ -227,11 +232,22 @@ public class FilmController {
 
         Color averageColor = Color.color(totalRed / pixelCount, totalGreen / pixelCount, totalBlue / pixelCount);
 
+        // Beyazlatma faktörü belirleyin (0 ile 1 arasında)
+        double brightenFactor = 0.1;
+
+        // Renk bileşenlerini beyazlatın
+        double brightenedRed = Math.min(averageColor.getRed() + brightenFactor, 1.0);
+        double brightenedGreen = Math.min(averageColor.getGreen() + brightenFactor, 1.0);
+        double brightenedBlue = Math.min(averageColor.getBlue() + brightenFactor, 1.0);
+
+        // Beyazlatılmış renk
+        Color brightenedColor = Color.color(brightenedRed, brightenedGreen, brightenedBlue);
+
         // Renk değerlerini CSS formatına dönüştürün
         String colorStyle = String.format("-fx-background-color: rgb(%d, %d, %d);",
-                (int) (averageColor.getRed() * 255),
-                (int) (averageColor.getGreen() * 255),
-                (int) (averageColor.getBlue() * 255));
+                (int) (brightenedColor.getRed() * 255),
+                (int) (brightenedColor.getGreen() * 255),
+                (int) (brightenedColor.getBlue() * 255));
 
         // Temayı uygulayın
         allscene.setStyle(colorStyle);
@@ -269,7 +285,7 @@ public class FilmController {
                     setStyle(colorStyle);
                 } else {
                     setText(item.getAd());
-                    setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 14.5)); // Font: Arial, Bold, 14pt
+                    setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 14.5));
                     setStyle("-fx-text-fill: #000000;"); // Siyah renk (isteğe bağlı)
                     setStyle(colorStyle);
                 }
@@ -448,5 +464,4 @@ public class FilmController {
             System.err.println("Dosya yazılırken bir hata oluştu: " + e.getMessage());
         }
     }
-
 }

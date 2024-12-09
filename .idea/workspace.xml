@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="Eksikler: Rating Güncellemesi">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmEditController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/FilmEdit.fxml" afterDir="false" />
+    <list default="true" id="5a6d42b7-ec89-4e1a-99ab-2dcbc5995407" name="Changes" comment="Güncelleme Eklendi">
+      <change afterPath="$PROJECT_DIR$/kapaklar/Fight Club.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kapaklar/High and Low (Tengoku to Jikogu).png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filmler.txt" beforeDir="false" afterPath="$PROJECT_DIR$/filmler.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kapaklar/Matrix.png" beforeDir="false" afterPath="$PROJECT_DIR$/kapaklar/Matrix.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/filmlibrary/FilmEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/FilmEdit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/FilmEdit.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filmlibrary/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/filmlibrary/FilmController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1733584725392</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Güncelleme Eklendi">
+      <created>1733669575611</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1733669575611</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,7 +247,8 @@
     <MESSAGE value="Film Kapakları eklendi" />
     <MESSAGE value="Dinamik Tema eklendi, Listview düzeltildi" />
     <MESSAGE value="Eksikler: Rating Güncellemesi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eksikler: Rating Güncellemesi" />
+    <MESSAGE value="Güncelleme Eklendi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Güncelleme Eklendi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

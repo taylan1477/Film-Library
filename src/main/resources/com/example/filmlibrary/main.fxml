@@ -113,7 +113,7 @@
                         <Font size="14.0" />
                      </font></Button>
                         <TextField fx:id="filmsearch" layoutX="11.0" layoutY="6.0" onKeyPressed="#filmara" prefHeight="28.0" prefWidth="200.0" promptText="Kütüphanede arayın..." />
-                  <Button layoutX="178.0" layoutY="512.0" mnemonicParsing="false" text="♥">
+                  <Button layoutX="178.0" layoutY="512.0" mnemonicParsing="false" onAction="#filmfavekle" text="♥">
                      <font>
                         <Font name="Bell MT Italic" size="15.0" />
                      </font>

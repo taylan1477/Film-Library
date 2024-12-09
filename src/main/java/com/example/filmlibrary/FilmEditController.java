@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 public class FilmEditController {
 
     @FXML
+    private TextField filmRatingField;
+
+    @FXML
     private TextField filmCountryField;
 
     @FXML
@@ -25,8 +28,6 @@ public class FilmEditController {
     @FXML
     private TextField filmLenghtField;
 
-    @FXML
-    private TextField filmNameField;
 
     @FXML
     private TextField filmProducerField;
@@ -43,12 +44,12 @@ public class FilmEditController {
     public void setFilm(Film film, Stage stage) {
         this.currentFilm = film;
         this.stage = stage;
-        filmNameField.setText(film.getAd());
         filmGenreField.setText(film.getTur());
         filmDirectorField.setText(film.getYonetmen());
         filmYearField.setText(String.valueOf(film.getYil()));
         filmLenghtField.setText(String.valueOf(film.getSure()));
         filmImdbField.setText(String.valueOf(film.getImdbPuani()));
+        filmRatingField.setText(String.valueOf(film.getDerecelendirme()));
         filmCountryField.setText(film.getUlke());
         filmProducerField.setText(film.getYapimci());
         filmLanguageField.setText(film.getDil());
@@ -57,7 +58,6 @@ public class FilmEditController {
     @FXML
     void saveEdit(ActionEvent event) {
         // Güncellenmiş bilgileri film objesine kaydet
-        currentFilm.setAd(filmNameField.getText());
         currentFilm.setTur(filmGenreField.getText());
         currentFilm.setYonetmen(filmDirectorField.getText());
         try {
@@ -74,6 +74,12 @@ public class FilmEditController {
         }
         try {
             currentFilm.setImdbPuani(Double.parseDouble(filmImdbField.getText()));
+        } catch (NumberFormatException e) {
+            System.err.println("Geçersiz puan formatı!");
+            return;
+        }
+        try {
+            currentFilm.setDerecelendirme(Double.parseDouble(filmRatingField.getText()));
         } catch (NumberFormatException e) {
             System.err.println("Geçersiz puan formatı!");
             return;
