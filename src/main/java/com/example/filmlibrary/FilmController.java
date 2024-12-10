@@ -23,6 +23,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class FilmController {
@@ -113,7 +114,29 @@ public class FilmController {
 
     @FXML
     void filmfavekle(ActionEvent event) {
+        // ListView'dan seçili filmi al
+        Film selectedFilm = filmlist.getSelectionModel().getSelectedItem();
 
+        if (selectedFilm != null) {
+            // Favori durumunu tersine çevir
+            selectedFilm.setFavori(!selectedFilm.isFavori());
+
+            // Kullanıcıya bilgi göstermek isterseniz
+            if (selectedFilm.isFavori()) {
+                System.out.println(selectedFilm.getAd() + " favorilere eklendi.");
+            } else {
+                System.out.println(selectedFilm.getAd() + " favorilerden çıkarıldı.");
+            }
+
+            // Dosyayı güncelle
+            guncelleVeDosyayaKaydet(selectedFilm);
+
+            // Listeyi güncellemek isterseniz
+            filmlist.refresh();
+            alfabetikSirala();
+        } else {
+            System.out.println("Lütfen bir film seçin.");
+        }
     }
 
     @FXML
@@ -123,18 +146,17 @@ public class FilmController {
 
         if (searchTerm.isEmpty()) {
             // Arama terimi boşsa tüm filmleri göster
-            filteredList.addAll(filmList);
+            alfabetikSirala();
+            filmlist.refresh();
         } else {
             for (Film film : filmList) {
                 if (film.getAd().toLowerCase().contains(searchTerm)) {
                     filteredList.add(film);
                 }
             }
+            filmlist.setItems(filteredList);
         }
-
-        filmlist.setItems(filteredList);
     }
-
 
     @FXML
     void kapakekle(MouseEvent event) {
@@ -181,18 +203,47 @@ public class FilmController {
         }
     }
 
+    void alfabetikSirala() {
+        // Favori olan ve olmayan filmleri ayır
+        ObservableList<Film> favoriler = FXCollections.observableArrayList();
+        ObservableList<Film> digerFilmler = FXCollections.observableArrayList();
+
+        for (Film film : filmList) {
+            if (film.isFavori()) {
+                favoriler.add(film);
+            } else {
+                digerFilmler.add(film);
+            }
+        }
+
+        // Favorileri ve diğer filmleri alfabetik sırala
+        FXCollections.sort(favoriler, Comparator.comparing(Film::getAd, String.CASE_INSENSITIVE_ORDER));
+        FXCollections.sort(digerFilmler, Comparator.comparing(Film::getAd, String.CASE_INSENSITIVE_ORDER));
+
+        // Favorileri ve diğer filmleri birleştir
+        ObservableList<Film> siraliListe = FXCollections.observableArrayList();
+        siraliListe.addAll(favoriler);
+        siraliListe.addAll(digerFilmler);
+
+        // ListView'i güncelle
+        filmlist.setItems(siraliListe);
+        filmlist.refresh();
+    }
+
     public void initialize() {
         // Dosyadan filmleri yükle
         loadFilmsFromFile();
 
-        // Filmleri ListView ile bağla
-        filmlist.setItems(filmList);
+        // Filmleri sırala
+        alfabetikSirala();
 
         // Liste boşsa mesaj veya başka bir eylem eklenebilir
         if (filmList.isEmpty()) {
             System.out.println("Kütüphane şu anda boş. Yeni filmler ekleyin.");
         } else {
             // ListView'deki ilk elemanı seçili yap
+            alfabetikSirala();
+            filmlist.refresh();
             filmlist.getSelectionModel().select(0);
             // İlk film detaylarını güncelle
             updateFilmDetails(filmList.get(0));
@@ -282,8 +333,13 @@ public class FilmController {
                 if (empty || item == null) {
                     setText(null);
                 } else {
-                    setText(item.getAd());
-                    setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 14.5));
+                    // Siyah renk (isteğe bağlı)
+                    if (item.isFavori()) {
+                        setText("♥ "+item.getAd());
+                    }else {
+                        setText(item.getAd());
+                    }
+                    setFont(javafx.scene.text.Font.font("Gill Sans Ultra Bold", javafx.scene.text.FontWeight.BOLD, 15));
                     setStyle("-fx-text-fill: #000000;"); // Siyah renk (isteğe bağlı)
                 }
                 setStyle(colorStyle);

@@ -1,8 +1,8 @@
-The Shawshank Redemption;Frank Darabont;Drama;1994;9.1;Andy ve Red isimli iki mahkumun dostluk hikayesi.;true;142;[Tim Robbins, Morgan Freeman];English;USA;Castle Rock Entertainment;9.3
+The Shawshank Redemption;Frank Darabont;Drama;1994;9.1;Andy ve Red isimli iki mahkumun dostluk hikayesi.;false;142;[Tim Robbins, Morgan Freeman];English;USA;Castle Rock Entertainment;9.3
 Inception;Christopher Nolan;Science Fiction;2010;8.6;Rüya içinde rüya konsepti üzerine bir bilim kurgu.;false;148;[Leonardo DiCaprio, Ellen Page, Tom Hardy];English;USA;Legendary Pictures;8.8
-Parasite;Bong Joon-ho;Thriller;2019;8.8;Zengin ve fakir ailelerin hayatlarının kesişmesi.;true;132;[Kang-ho Song, Sun-kyun Lee, Yeo-jeong Jo];Korean;South Korea;Barunson E&A;8.6
-Interstellar;Christopher Nolan;Bilim Kurgu;2014;8.1;İnsanlığın hayatta kalması için bir astronot ekibi yeni bir gezegen arar.;false;169;[[Matthew McConaughey,  Anne Hathaway,  Jessica Chastain]];English;USA;Syncopy;8.6
-Matrix;Wacowski Biraderler;Bilim Kurgu;1999;9.9;Özet;false;136;[Keanu Reeves,   Oyuncu2];English;USA;Warner Brothers;8.7
-High and Low (Tengoku to Jikogu);Akira Kurosawa;Suç, Dram, Gerilim;1963;7.2;Zengin bir iş adamının kaçırılan bir çocuğu kurtarma mücadelesi;false;143;[Toshirō Mifune];Japonca;Japonya;Toho Film Company;8.4
-Fight Club;David Fincher;Drama, Thriller;1999;9.9;A man with insomnia meets a strange soap maker, and soon finds himself in an underground fight club.;false;139;[Edward Norton,  Brad Pitt,  Helena Bonham Carter];English;USA;Fox 2000 Pictures;9.9
-Transformers;Michael Bay;Aksiyon;2007;7.1;Autobots and Decepticons battle for control of Earth.;false;144;Shia LaBeouf, Megan Fox, Josh Duhamel;İngilizce;ABD;DreamWorks Pictures;7.8
+Parasite;Bong Joon-ho;Thriller;2019;8.8;Zengin ve fakir ailelerin hayatlarının kesişmesi.;false;132;[Kang-ho Song, Sun-kyun Lee, Yeo-jeong Jo];Korean;South Korea;Barunson E&A;8.6
+Interstellar;Christopher Nolan;Bilim Kurgu;2014;8.1;İnsanlığın hayatta kalması için bir astronot ekibi yeni bir gezegen arar.;false;169;[[Matthew McConaughey, Anne Hathaway, Jessica Chastain]];English;USA;Syncopy;8.6
+Matrix;Wacowski Biraderler;Bilim Kurgu;1999;9.9;Özet;true;136;[[[Keanu Reeves,   Oyuncu2]]];English;USA;Warner Brothers;8.7
+High and Low (Tengoku to Jikogu);Akira Kurosawa;Suç, Dram, Gerilim;1963;7.2;Zengin bir iş adamının kaçırılan bir çocuğu kurtarma mücadelesi;false;143;Toshirō Mifune;Japonca;Japonya;Toho Film Company;8.4
+Fight Club;David Fincher;Drama, Thriller;1999;9.9;A man with insomnia meets a strange soap maker, and soon finds himself in an underground fight club.;true;139;[Edward Norton, Brad Pitt, Helena Bonham Carter];English;USA;Fox 2000 Pictures;9.9
+Transformers;Michael Bay;Aksiyon;2007;7.1;Autobots and Decepticons battle for control of Earth.;false;144;[Shia LaBeouf, Megan Fox, Josh Duhamel];İngilizce;ABD;DreamWorks Pictures;7.8

@@ -1,6 +1,7 @@
 package com.example.filmlibrary;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Film {
@@ -167,10 +168,7 @@ public class Film {
         String ozet = parts[5];
         boolean favori = Boolean.parseBoolean(parts[6]);
         int sure = Integer.parseInt(parts[7]);
-        List<String> oyuncular = new ArrayList<>();  // Hatalı kısmı burada düzelttik
-        for (String oyuncu : parts[8].split(",")) {
-            oyuncular.add(oyuncu);
-        }
+        List<String> oyuncular = Arrays.asList(parts[8].replace("[", "").replace("]", "").split(","));
         String dil = parts[9];
         String ulke = parts[10];
         String yapimci = parts[11];
