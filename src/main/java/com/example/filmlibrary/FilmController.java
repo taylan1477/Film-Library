@@ -110,6 +110,7 @@ public class FilmController {
             filmlist.setItems(filmList);
             saveFilmsToFile();
         }
+        alfabetikSirala();
     }
 
     @FXML

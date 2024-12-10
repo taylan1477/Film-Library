@@ -37,6 +37,9 @@ public class FilmEkleController {
     @FXML
     private TextField filmCountryField;
 
+    @FXML
+    private TextField filmOyuncuField;
+
     private FilmController filmController; // FilmController referansı
 
     public void setFilmController(FilmController controller) {
@@ -55,6 +58,7 @@ public class FilmEkleController {
         String producer = filmProducerField.getText();
         String language = filmLanguageField.getText();
         String country = filmCountryField.getText();
+        String oyuncu = filmOyuncuField.getText();
 
         if (!name.isEmpty() && !year.isEmpty() && !imdb.isEmpty()) {
 
@@ -62,7 +66,7 @@ public class FilmEkleController {
                 // Yeni film kaydı yapılabilir
                 Film newFilm = new Film(name, director, genre, Integer.parseInt(year), Double.parseDouble(imdb),
                         "Özet", false, Integer.parseInt(length),
-                        List.of("Oyuncu1", "Oyuncu2"), language, country, producer, Double.parseDouble(imdb));
+                        List.of(oyuncu), language, country, producer, Double.parseDouble(imdb));
 
                 // Filme kaydetme kodlarını ekleyin
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(FilmController.FILE_PATH, true))) {
@@ -73,6 +77,7 @@ public class FilmEkleController {
                 // FilmController üzerinden filmleri yeniden yükle
                 if (filmController != null) {
                     filmController.loadFilmsFromFile();
+                    filmController.alfabetikSirala();
                 }
 
                 // Pencereyi kapat
