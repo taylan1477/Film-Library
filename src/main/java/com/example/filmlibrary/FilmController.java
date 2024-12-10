@@ -31,9 +31,6 @@ public class FilmController {
     private AnchorPane anchorpane;
 
     @FXML
-    private AnchorPane biganchorpane;
-
-    @FXML
     private ScrollPane bigscrollpane;
 
     @FXML
@@ -79,17 +76,13 @@ public class FilmController {
     private Text filmyonetmen;
 
     @FXML
-    private TextField ifilmekle;
-
-    @FXML
     private Text yapimci;
 
     @FXML
     private ListView<Film> filmlist;
 
-    private ObservableList<Film> filmList = FXCollections.observableArrayList();
+    private final ObservableList<Film> filmList = FXCollections.observableArrayList();
 
-    public static final String FILE_PATH = "filmler.txt";
 
     @FXML
     void filmekle(MouseEvent event) {
@@ -124,18 +117,24 @@ public class FilmController {
     }
 
     @FXML
-    void filmara(MouseEvent event) {
-        String searchTerm = filmsearch.getText().toLowerCase();
+    void filmara(ActionEvent event) {
+        String searchTerm = filmsearch.getText().toLowerCase().trim();
         ObservableList<Film> filteredList = FXCollections.observableArrayList();
 
-        for (Film film : filmList) {
-            if (film.getAd().toLowerCase().contains(searchTerm)) {
-                filteredList.add(film);
+        if (searchTerm.isEmpty()) {
+            // Arama terimi boşsa tüm filmleri göster
+            filteredList.addAll(filmList);
+        } else {
+            for (Film film : filmList) {
+                if (film.getAd().toLowerCase().contains(searchTerm)) {
+                    filteredList.add(film);
+                }
             }
         }
 
         filmlist.setItems(filteredList);
     }
+
 
     @FXML
     void kapakekle(MouseEvent event) {
@@ -257,42 +256,40 @@ public class FilmController {
         anchorpane.setStyle(colorStyle);
 
         filmoyuncular.setStyle(colorStyle); // ListView'ın arka planı
-        filmoyuncular.setCellFactory(lv -> new ListCell<String>() {
+        filmoyuncular.setCellFactory(lv -> new ListCell<>() {
                     @Override
                     protected void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
 
+                        // Hücreye stil uygula
                         if (empty || item == null) {
                             setText(null);
-                            setStyle(colorStyle); // Varsayılan stil
                         } else {
                             setText(item);
                             setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 12)); // Font: Arial, Bold, 14pt
                             setStyle("-fx-text-fill: #000000;"); // Siyah renk (isteğe bağlı)
-                            setStyle(colorStyle); // Hücreye stil uygula
                         }
+                        setStyle(colorStyle); // Varsayılan stil
                     }
                 });
 
         filmlist.setStyle(colorStyle); // ListView'ın arka planı
-        filmlist.setCellFactory(lv -> new ListCell<Film>() {
+        filmlist.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(Film item, boolean empty) {
                 super.updateItem(item, empty);
 
                 if (empty || item == null) {
                     setText(null);
-                    setStyle(colorStyle);
                 } else {
                     setText(item.getAd());
                     setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 14.5));
                     setStyle("-fx-text-fill: #000000;"); // Siyah renk (isteğe bağlı)
-                    setStyle(colorStyle);
                 }
+                setStyle(colorStyle);
             }
         });
     }
-
 
     private void updateFilmDetails(Film film) {
         filmisim.setText(film.getAd());
@@ -337,6 +334,10 @@ public class FilmController {
         filmoyuncular.getItems().addAll(film.getOyuncular());
     }
 
+    // .fklib uzantısını kullanacak şekilde dosya yolunu ayarlayın
+    public static final String FILE_PATH = "filmler.fklib";
+
+    // Film dosyasını kaydederken uzantıyı kullan
     private void saveFilmsToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             for (Film film : filmList) {
@@ -348,11 +349,12 @@ public class FilmController {
         }
     }
 
+    // Film dosyasını yüklerken uzantıyı kontrol et
     public void loadFilmsFromFile() {
         filmList.clear();
         File file = new File(FILE_PATH);
         if (!file.exists() || file.length() == 0) {
-            System.out.println("Film dosyası bulunamadı veya boş.");
+            System.out.println(".fklib dosyası bulunamadı veya boş.");
             return;
         }
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -422,7 +424,7 @@ public class FilmController {
     }
 
     private void guncelleVeDosyayaKaydet(Film updatedFilm) {
-        File dosya = new File("filmler.txt");
+        File dosya = new File("filmler.fklib");
         List<String> satirlar = new ArrayList<>();
 
         // Dosyayı satır satır oku
