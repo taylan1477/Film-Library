@@ -80,6 +80,12 @@ public class FilmController {
     private Text yapimci;
 
     @FXML
+    private ImageView oyuncuf1;
+
+    @FXML
+    private ImageView oyuncuf2;
+
+    @FXML
     private ListView<Film> filmlist;
 
     private final ObservableList<Film> filmList = FXCollections.observableArrayList();
@@ -156,6 +162,97 @@ public class FilmController {
                 }
             }
             filmlist.setItems(filteredList);
+        }
+    }
+
+    @FXML
+    void oyuncuf1ekle(MouseEvent event) {
+        // Kullanıcıdan bir resim seçmesini iste
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Oyuncu Fotoğrafı Seç");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
+
+        // FileChooser penceresini aç
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            // "oyuncu_fotograflari" klasörüne taşınacak yolu belirle
+            File destinationDir = new File("oyuncu_fotograflari");
+            if (!destinationDir.exists()) {
+                destinationDir.mkdirs(); // Eğer klasör yoksa oluştur
+            }
+
+            // Seçilen oyuncu bilgisine eriş (örneğin bir ListView'dan)
+            String selectedOyuncu = filmoyuncular.getSelectionModel().getSelectedItem();
+
+            if (selectedOyuncu != null) {
+                // Hedef dosyanın adını belirle (oyuncu adı ile taşınır)
+                File destinationFile = new File(destinationDir, selectedOyuncu + ".png");
+
+                try {
+                    // Dosyayı "oyuncu_fotograflari" klasörüne kopyala
+                    Files.copy(selectedFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    System.out.println("Oyuncu fotoğrafı başarıyla taşındı: " + destinationFile.getAbsolutePath());
+
+                    // Yeni oyuncu fotoğrafını göster (örneğin bir ImageView'de)
+                    oyuncuf1.setImage(new Image("file:" + destinationFile.getAbsolutePath()));
+                } catch (IOException e) {
+                    System.err.println("Oyuncu fotoğrafı taşınırken bir hata oluştu: " + e.getMessage());
+                }
+            } else {
+                System.err.println("Oyuncu seçilmedi. Fotoğraf atanamadı.");
+            }
+        } else {
+            System.out.println("Hiçbir dosya seçilmedi.");
+        }
+    }
+
+
+    @FXML
+    void oyuncuf2ekle(MouseEvent event) {
+        // Kullanıcıdan bir resim seçmesini iste
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Oyuncu Fotoğrafı Seç");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
+
+        // FileChooser penceresini aç
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            // "oyuncu_fotograflari" klasörüne taşınacak yolu belirle
+            File destinationDir = new File("oyuncu_fotograflari");
+            if (!destinationDir.exists()) {
+                destinationDir.mkdirs(); // Eğer klasör yoksa oluştur
+            }
+
+            // Seçilen oyuncu bilgisine eriş (örneğin bir ListView'dan)
+            String selectedOyuncu = filmoyuncular.getSelectionModel().getSelectedItem();
+
+            if (selectedOyuncu != null) {
+                // Hedef dosyanın adını belirle (oyuncu adı ile taşınır)
+                File destinationFile = new File(destinationDir, selectedOyuncu + " AS .png");
+
+                try {
+                    // Dosyayı "oyuncu_fotograflari" klasörüne kopyala
+                    Files.copy(selectedFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    System.out.println("Karakter fotoğrafı başarıyla taşındı: " + destinationFile.getAbsolutePath());
+
+                    // Yeni oyuncu fotoğrafını göster (örneğin bir ImageView'de)
+                    oyuncuf2.setImage(new Image("file:" + destinationFile.getAbsolutePath()));
+                } catch (IOException e) {
+                    System.err.println("Karakter fotoğrafı taşınırken bir hata oluştu: " + e.getMessage());
+                }
+            } else {
+                System.err.println("Karakter seçilmedi. Fotoğraf atanamadı.");
+            }
+        } else {
+            System.out.println("Hiçbir dosya seçilmedi.");
         }
     }
 
@@ -249,6 +346,10 @@ public class FilmController {
             // İlk film detaylarını güncelle
             updateFilmDetails(filmList.get(0));
         }
+        // İlk açılışta default_actor gözüksün
+        String varsayilanOyuncuFoto = "file:oyuncu_fotograflari/default_actor.png";
+        oyuncuf1.setImage(new Image(varsayilanOyuncuFoto)); // 480x600, 240x300
+        oyuncuf2.setImage(new Image(varsayilanOyuncuFoto)); // 480x600, 240x300
 
         // Seçilen filmi detaylarla bağla
         filmlist.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -318,7 +419,7 @@ public class FilmController {
                             setText(null);
                         } else {
                             setText(item);
-                            setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 12)); // Font: Arial, Bold, 14pt
+                            setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 14)); // Font: Arial, Bold, 14pt
                             setStyle("-fx-text-fill: #000000;"); // Siyah renk (isteğe bağlı)
                         }
                         setStyle(colorStyle); // Varsayılan stil
@@ -340,7 +441,7 @@ public class FilmController {
                     }else {
                         setText(item.getAd());
                     }
-                    setFont(javafx.scene.text.Font.font("Gill Sans Ultra Bold", javafx.scene.text.FontWeight.BOLD, 15));
+                    setFont(javafx.scene.text.Font.font("Gill Sans Ultra Bold", javafx.scene.text.FontWeight.BOLD, 16));
                     setStyle("-fx-text-fill: #000000;"); // Siyah renk (isteğe bağlı)
                 }
                 setStyle(colorStyle);
@@ -368,20 +469,17 @@ public class FilmController {
         String varsayilanKapak = "file:kapaklar/default_poster.png";
         File varsayilanKapakFile = new File("kapaklar/default_poster.png");
 
-        // Varsayılan görüntünün varlığını kontrol edin
         if (!varsayilanKapakFile.exists()) {
-            System.err.println("Varsayılan görüntü dosyası bulunamadı: default_poster.png");
+            System.err.println("Varsayılan kapak dosyası bulunamadı: default_poster.png");
             return; // Varsayılan dosya olmadan devam edemeyiz.
         }
 
         if (kapakFile.exists()) {
-            // Kapak dosyası mevcutsa görüntüyü ayarla
             filmkapak.setImage(new Image("file:" + kapakDosyasi));
-            filmkapak.setDisable(true); // Tıklanabilirliği kapat
+            filmkapak.setDisable(true);
         } else {
-            // Kapak dosyası yoksa varsayılanı göster
             filmkapak.setImage(new Image(varsayilanKapak));
-            filmkapak.setDisable(false); // Tıklanabilirliği açık bırak
+            filmkapak.setDisable(false);
         }
 
         // Temayı değiştir
@@ -389,6 +487,44 @@ public class FilmController {
 
         filmoyuncular.getItems().clear();
         filmoyuncular.getItems().addAll(film.getOyuncular());
+
+        // Oyuncular için fotoğraf güncellemesi
+        filmoyuncular.getSelectionModel().selectedItemProperty().addListener((obs, eskiDeger, yeniDeger) -> {
+            // Yeni seçilen öğeye erişim
+            if (yeniDeger != null) {
+                String oyuncuFotoDosyasi = "oyuncu_fotograflari/" + yeniDeger + ".png";
+                File oyuncuFotoFile = new File(oyuncuFotoDosyasi);
+
+                String karakterFotoDosyasi = "oyuncu_fotograflari/" + yeniDeger + " AS .png";
+                File karakterFotoFile = new File(karakterFotoDosyasi);
+
+                String varsayilanOyuncuFoto = "file:oyuncu_fotograflari/default_actor.png";
+                File varsayilanOyuncuFotoFile = new File("oyuncu_fotograflari/default_actor.png");
+
+                if (!varsayilanOyuncuFotoFile.exists()) {
+                    System.err.println("Varsayılan oyuncu fotoğrafı dosyası bulunamadı: default_actor.png");
+                    return; // Varsayılan fotoğraf olmadan devam etmeyelim.
+                }
+
+                if (karakterFotoFile.exists()) {
+                    oyuncuf2.setImage(new Image("file:" + karakterFotoDosyasi));
+                    oyuncuf2.setDisable(true);
+                }
+                else {
+                    oyuncuf2.setImage(new Image(varsayilanOyuncuFoto)); // 480x600, 240x300
+                    oyuncuf2.setDisable(false);
+                }
+
+                if (oyuncuFotoFile.exists()) {
+                    oyuncuf1.setImage(new Image("file:" + oyuncuFotoDosyasi));
+                    oyuncuf1.setDisable(true);
+                }
+                else {
+                    oyuncuf1.setImage(new Image(varsayilanOyuncuFoto)); // 480x600, 240x300
+                    oyuncuf1.setDisable(false);
+                }
+            }
+        });
     }
 
     // .fklib uzantısını kullanacak şekilde dosya yolunu ayarlayın

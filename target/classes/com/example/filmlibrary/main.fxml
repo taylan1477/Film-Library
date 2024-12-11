@@ -160,7 +160,7 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <ListView fx:id="filmoyuncular" fixedCellSize="20.0" layoutX="8.0" layoutY="388.0" prefHeight="151.0" prefWidth="266.0" />
+                        <ListView fx:id="filmoyuncular" fixedCellSize="20.0" layoutX="8.0" layoutY="388.0" prefHeight="150.0" prefWidth="266.0" />
                         <Text fx:id="yapimci" layoutX="274.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yapımcı" wrappingWidth="200.44799388281268">
                            <font>
                               <Font size="20.0" />
@@ -191,6 +191,8 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
+                        <ImageView fx:id="oyuncuf1" fitHeight="150.0" fitWidth="120.0" layoutX="286.0" layoutY="388.0" onMouseClicked="#oyuncuf1ekle" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="oyuncuf2" fitHeight="150.0" fitWidth="120.0" layoutX="414.0" layoutY="388.0" onMouseClicked="#oyuncuf2ekle" pickOnBounds="true" preserveRatio="true" />
                             </children>
                         </AnchorPane>
                     </content>

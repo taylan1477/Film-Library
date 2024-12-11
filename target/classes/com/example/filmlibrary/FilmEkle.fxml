@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="463.0" prefWidth="494.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmlibrary.FilmEkleController">
+<VBox alignment="CENTER" prefHeight="480.0" prefWidth="498.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filmlibrary.FilmEkleController">
     <children>
         <Label text="Film Bilgilerini Girin">
          <font>
@@ -21,6 +21,7 @@
       <TextField fx:id="filmProducerField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="400.0" promptText="Filmin Yapımcısı" />
       <TextField fx:id="filmLanguageField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="400.0" promptText="Filmin Orijinal Dili" />
       <TextField fx:id="filmCountryField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="400.0" promptText="Filmin Ülkesi" />
+      <TextField fx:id="filmOyuncuField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="400.0" promptText="Oyuncuları aralarına virgün koyarak yazınız..." />
         <Button onAction="#addFilm" prefHeight="28.0" prefWidth="111.0" text="Ekle">
          <font>
             <Font name="Kristen ITC" size="14.0" />
